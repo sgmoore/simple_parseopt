@@ -1335,7 +1335,10 @@ macro get_options_and_supplied*(body: untyped): untyped =
                             do_help()
                             quit(0)
                         else:
+                            if automatic_help :
+                                do_help()
                             parse_error("No such parameter: " & word)
+                            
                     if parameters_are_unique and is_supplied(addr supplied, name):
                         parse_error("Parameter already set: " & word)
 
